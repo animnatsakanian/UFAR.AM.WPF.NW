@@ -1,0 +1,58 @@
+﻿<Window x:Class="UFAR_AM_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Resources>
+            <!-- Define a style for DataGridRow to highlight the selected row -->
+            <Style TargetType="DataGridRow">
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="Yellow"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+
+        <!-- Your existing Grid content -->
+        <!-- Define layout using Grid or other layout controls -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- DataGrid to display Orders -->
+            <DataGrid x:Name="dataGridOrders" Grid.Column="0" AutoGenerateColumns="True" Grid.ColumnSpan="2" Margin="0,217,266,0" />
+
+            <!-- ListBox to display Shippers -->
+            <DataGrid x:Name="dataGridShippers" Grid.Column="1" AutoGenerateColumns="True" Margin="0,217,0,0" />
+
+            <!-- DataGrid to display Employees -->
+            <DataGrid x:Name="dataGridEmployees" Grid.Column="1" AutoGenerateColumns="True" Grid.ColumnSpan="2" Margin="266,217,0,0" />
+
+            <!-- Search Order Section -->
+            <StackPanel Margin="10,10,10,260">
+                <TextBlock Text="Search Order by ID:" Margin="0,10,0,5"/>
+                <TextBox x:Name="txtOrderId" Margin="0,0,0,5"/>
+                <Button Content="Search" Click="Button_Click_Order" Margin="0,0,0,10" />
+                <TextBlock x:Name="txtSearchedOrder" TextWrapping="Wrap"/>
+            </StackPanel>
+            
+            <StackPanel Margin="10,10,10,260" Grid.Column="1">
+                <TextBlock Text="Search Shipper by ID:" Margin="0,10,0,5"/>
+                <TextBox x:Name="txtShipperId" Margin="0,0,0,5"/>
+                <Button Content="Search" Click="Button_Click_Shipper" Margin="0,0,0,10" />
+                <TextBlock x:Name="txtSearchedShipper" TextWrapping="Wrap"/>
+            </StackPanel>
+            
+            <StackPanel Margin="10,10,10,260" Grid.Column="2">
+                <TextBlock Text="Search Employee by ID:" Margin="0,10,0,5"/>
+                <TextBox x:Name="txtEmployeeId" Margin="0,0,0,5"/>
+                <Button Content="Search" Click="Button_Click_Employee" Margin="0,0,0,10" />
+                <TextBlock x:Name="txtSearchedEmployee" TextWrapping="Wrap"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

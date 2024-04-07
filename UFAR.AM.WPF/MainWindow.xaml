@@ -1,0 +1,24 @@
+﻿<Window x:Class="UFAR_AM_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!-- Define layout using Grid or other layout controls -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- DataGrid to display Orders -->
+            <DataGrid x:Name="dataGridOrders" Grid.Column="0" AutoGenerateColumns="True" />
+
+            <!-- ListBox to display Shippers -->
+            <DataGrid x:Name="dataGridShippers" Grid.Column="1" AutoGenerateColumns="True" />
+
+            <!-- DataGrid to display Employees -->
+            <DataGrid x:Name="dataGridEmployees" Grid.Column="2" AutoGenerateColumns="True" />
+        </Grid>
+    </Grid>
+</Window>
